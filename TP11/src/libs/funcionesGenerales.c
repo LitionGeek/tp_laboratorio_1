@@ -23,6 +23,7 @@ void mostrarMenu(){
 	float precioAerolineas[2] = {0,0};
 	float resultadoCostoAeroArg[5];
 	float resultadoCostoLATAM[5];
+	float diferenciaPrecio;
 	float descuento = 10;
 	float interes = 25;
 	float precioBTC = 4606954.55;
@@ -52,14 +53,14 @@ void mostrarMenu(){
 			break;
 		case 3:
 			if(precioAerolineas[0] != 0.00 && precioAerolineas[1] != 0.00 && kilometraje != 0){
-				calcularCostos(resultadoCostoAeroArg, resultadoCostoLATAM, descuento, interes, precioBTC, kilometraje, precioAerolineas);
+				calcularCostos(resultadoCostoAeroArg, resultadoCostoLATAM, descuento, interes, precioBTC, kilometraje, precioAerolineas,&diferenciaPrecio);
 			}else{
 				printf("ERROR. Se debe cargar los kilometros y el precio de las aerolineas primero.");
 			}
 			break;
 		case 4:
 			if(resultadoCostoAeroArg[0] != 0.00 && resultadoCostoLATAM[0]){
-				mostrarResultados(resultadoCostoAeroArg, resultadoCostoLATAM,kilometraje);
+				mostrarResultados(resultadoCostoAeroArg, resultadoCostoLATAM,kilometraje,diferenciaPrecio);
 			}else{
 				printf("ERROR. Se debe calcular el precio primero.");
 			}
@@ -87,19 +88,19 @@ void mostrarMenu(){
  * @params kilometraje recibe el kilometrraje
  */
 
-void mostrarResultados(float *resultadoCostoAeroArg, float *resultadoCostoLATAM,float kilometraje){
+void mostrarResultados(float *resultadoCostoAeroArg, float *resultadoCostoLATAM,float kilometraje,float difPrecio){
 	printf("\nKMs Ingresados: %.2f km",kilometraje);
-	printf("\nPrecio Aerolineas Argentinas: %.2f",resultadoCostoAeroArg[0]);
-	printf("\na) Precio con tarjeta de debito: %.2f",resultadoCostoAeroArg[1]);
-	printf("\nb) Precio con tarjeta de credito: %.2f",resultadoCostoAeroArg[2]);
+	printf("\nPrecio Aerolineas Argentinas: $%.2f",resultadoCostoAeroArg[0]);
+	printf("\na) Precio con tarjeta de debito: $%.2f",resultadoCostoAeroArg[1]);
+	printf("\nb) Precio con tarjeta de credito: $%.2f",resultadoCostoAeroArg[2]);
 	printf("\nc) Precio con tarjeta con bitcoin: : %.12f",resultadoCostoAeroArg[3]);
-	printf("\nd) Mostrar precio unitario: %.2f\n",resultadoCostoAeroArg[4]);
+	printf("\nd) Mostrar precio unitario: $%.2f\n",resultadoCostoAeroArg[4]);
 	printf("\nPrecio LATAM: %.2f",resultadoCostoLATAM[0]);
-	printf("\na) Precio con tarjeta de debito: %.2f",resultadoCostoLATAM[1]);
-	printf("\nb) Precio con tarjeta de credito: %.2f",resultadoCostoLATAM[2]);
-	printf("\nc) Precio con tarjeta con bitcoin: : %.12f",resultadoCostoLATAM[3]);
-	printf("\nd) Mostrar precio unitario: %.2f\n",resultadoCostoLATAM[4]);
-	printf("La diferencia de precio es: %.2f\n",(resultadoCostoAeroArg[0]-resultadoCostoLATAM[0]));
+	printf("\na) Precio con tarjeta de debito: $%.2f",resultadoCostoLATAM[1]);
+	printf("\nb) Precio con tarjeta de credito: $%.2f",resultadoCostoLATAM[2]);
+	printf("\nc) Precio con tarjeta con bitcoin:: %.12f",resultadoCostoLATAM[3]);
+	printf("\nd) Mostrar precio unitario: $%.2f\n",resultadoCostoLATAM[4]);
+	printf("\nLa diferencia de precio es: $%.2f\n",difPrecio);
 }
 
 /***
@@ -117,9 +118,10 @@ void cargaForzada(float *precioAerolineas,float *resultadoCostoLATAM,float *resu
 	float interes = 25;
 	float precioBTC =4606954.55;
 	float kilometraje = 7090;
+	float diferenciaPrecio;
 	precioAerolineas[0] = buffer;
 	precioAerolineas[1] = buffer2;
-	calcularCostos(resultadoCostoAeroArg, resultadoCostoLATAM, descuento, interes, precioBTC, kilometraje, precioAerolineas);
-	mostrarResultados(resultadoCostoAeroArg, resultadoCostoLATAM,kilometraje);
+	calcularCostos(resultadoCostoAeroArg, resultadoCostoLATAM, descuento, interes, precioBTC, kilometraje, precioAerolineas,&diferenciaPrecio);
+	mostrarResultados(resultadoCostoAeroArg, resultadoCostoLATAM,kilometraje,diferenciaPrecio);
 }
 

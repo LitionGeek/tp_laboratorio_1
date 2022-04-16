@@ -21,7 +21,7 @@
  * @params kilometros contiene los kilometros
  * @params precioAerolineas es un puntero donde tiene el precio
  */
-void calcularCostos(float *resultadoCostoAeroArg,float *resultadoCostoLATAM,float descuento,float interes,float precioBTC, float kilometraje,float *precioAerolineas){
+void calcularCostos(float *resultadoCostoAeroArg,float *resultadoCostoLATAM,float descuento,float interes,float precioBTC, float kilometraje,float *precioAerolineas,float *diferenciaPrecio){
 	resultadoCostoAeroArg[0] = precioAerolineas[0];
 	resultadoCostoAeroArg[1] = calcularPrecioTD(precioAerolineas[0],descuento);
 	resultadoCostoAeroArg[2] = calcularPrecioTC(precioAerolineas[0],interes);
@@ -32,6 +32,7 @@ void calcularCostos(float *resultadoCostoAeroArg,float *resultadoCostoLATAM,floa
 	resultadoCostoLATAM[2] = calcularPrecioTC(precioAerolineas[1],interes);
 	resultadoCostoLATAM[3] = calcularPrecioEnBTC(precioAerolineas[1],precioBTC);
 	resultadoCostoLATAM[4] = calcularPrecioPorKM(precioAerolineas[1],kilometraje);
+	*diferenciaPrecio = calcularDiferenciaDePrecio(resultadoCostoAeroArg[0], resultadoCostoLATAM[0]);
 }
 
 /***

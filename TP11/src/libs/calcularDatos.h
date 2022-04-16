@@ -51,7 +51,7 @@ float calcularPrecioPorKM(float precioAerolinea,float kilometros);
  * @params kilometros contiene los kilometros
  * @params precioAerolineas es un puntero donde tiene el precio
  */
-void calcularCostos(float *resultadoCostoAeroArg,float *resultadoCostoLATAM,float descuento,float interes,float precioBTC, float kilometros,float *precioAerolineas);
+void calcularCostos(float *resultadoCostoAeroArg,float *resultadoCostoLATAM,float descuento,float interes,float precioBTC, float kilometros,float *precioAerolineas,float *diferenciaPrecio);
 
 /**
  * @fn float calcularDiferenciaDePrecio()

@@ -22,7 +22,7 @@ void mostrarMenu();
  * @params resultadoCostoLATAM es un puntero, tiene 5 posiciones donde cada una guarda un valor de la aerolinea
  * @params kilometraje recibe el kilometrraje
  */
-void mostrarResultados(float *resultadoCostoAeroArg, float *resultadoCostoLATAM,float kilometraje);
+void mostrarResultados(float *resultadoCostoAeroArg, float *resultadoCostoLATAM,float kilometraje,float difPrecio);
 /***
  * @fn void cargaForzada()
  * Description: La funcion hardcodea los valores de las aerolineas y los kilometros
