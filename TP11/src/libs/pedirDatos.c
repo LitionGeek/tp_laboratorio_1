@@ -46,9 +46,16 @@ void pedirPrecio(char mensajeAerolinea[],char mensajePrecio[],float *precios){
  */
 float pedirKilometros(char mensajeKilometros[]){
 	float bufferNum;
+	int bufferNumValido;
 	setbuf(stdout,NULL);
-	printf("\n%s",mensajeKilometros);
-	fflush(stdin);
-	scanf("%f",&bufferNum);
+	do{
+		printf("\n%s",mensajeKilometros);
+		fflush(stdin);
+		scanf("%f",&bufferNum);
+		bufferNumValido = validarFlotante(0.0,bufferNum);
+		if(bufferNumValido !=1){
+			printf("ERROR. El valor del kilometro debe ser mayor a 0");
+		}
+	}while(bufferNumValido!=1);
 	return bufferNum;
 }

@@ -15,7 +15,6 @@
  * @brief Imprime las opciones del menu
  * Description : Se muestran 6 opciones distintas
  * Opciones validas opcion > 0 y opcion < 7
- * @p
  */
 void mostrarMenu(){
 	int opcion;
@@ -29,7 +28,7 @@ void mostrarMenu(){
 	float precioBTC = 4606954.55;
 	setbuf(stdout, NULL);
 	do{
-		printf("\n1.Ingresar Kilometros.");
+		printf("\t\n1.Ingresar Kilometros.");
 		printf("\n2.Ingresar precio de vuelo.");
 		printf("\n3.Calcular todos los costos.");
 		printf("\n4.Informar resultados.");
@@ -46,7 +45,6 @@ void mostrarMenu(){
 
 		switch(opcion){
 		case 1:
-
 			kilometraje = pedirKilometros("Ingrese los kilometros: ");
 			break;
 		case 2:
@@ -61,8 +59,7 @@ void mostrarMenu(){
 			break;
 		case 4:
 			if(resultadoCostoAeroArg[0] != 0.00 && resultadoCostoLATAM[0]){
-				printf("Precio %.2f",resultadoCostoAeroArg[0]);
-							mostrarResultados(resultadoCostoAeroArg, resultadoCostoLATAM,kilometraje);
+				mostrarResultados(resultadoCostoAeroArg, resultadoCostoLATAM,kilometraje);
 			}else{
 				printf("ERROR. Se debe calcular el precio primero.");
 			}
@@ -96,12 +93,13 @@ void mostrarResultados(float *resultadoCostoAeroArg, float *resultadoCostoLATAM,
 	printf("\na) Precio con tarjeta de debito: %.2f",resultadoCostoAeroArg[1]);
 	printf("\nb) Precio con tarjeta de credito: %.2f",resultadoCostoAeroArg[2]);
 	printf("\nc) Precio con tarjeta con bitcoin: : %.12f",resultadoCostoAeroArg[3]);
-	printf("\nd) Mostrar precio unitario: %.2f",resultadoCostoAeroArg[4]);
+	printf("\nd) Mostrar precio unitario: %.2f\n",resultadoCostoAeroArg[4]);
 	printf("\nPrecio LATAM: %.2f",resultadoCostoLATAM[0]);
 	printf("\na) Precio con tarjeta de debito: %.2f",resultadoCostoLATAM[1]);
 	printf("\nb) Precio con tarjeta de credito: %.2f",resultadoCostoLATAM[2]);
 	printf("\nc) Precio con tarjeta con bitcoin: : %.12f",resultadoCostoLATAM[3]);
-	printf("\nd) Mostrar precio unitario: %.2f",resultadoCostoLATAM[4]);
+	printf("\nd) Mostrar precio unitario: %.2f\n",resultadoCostoLATAM[4]);
+	printf("La diferencia de precio es: %.2f\n",(resultadoCostoAeroArg[0]-resultadoCostoLATAM[0]));
 }
 
 /***

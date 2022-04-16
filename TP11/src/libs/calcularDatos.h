@@ -53,5 +53,12 @@ float calcularPrecioPorKM(float precioAerolinea,float kilometros);
  */
 void calcularCostos(float *resultadoCostoAeroArg,float *resultadoCostoLATAM,float descuento,float interes,float precioBTC, float kilometros,float *precioAerolineas);
 
+/**
+ * @fn float calcularDiferenciaDePrecio()
+ * @brief Calcula la diferencia de precio de sos aerolineas
+ * @params precioAerolineasArgentina puntero al valor de la aerolinea
+ *  * @params precioLATAM  puntero al valor de la aerolinea
+ */
+float calcularDiferenciaDePrecio(float precioAerolineasArgentina, float precioLATAM);
 
 #endif /* LIBS_CALCULARDATOS_H_ */

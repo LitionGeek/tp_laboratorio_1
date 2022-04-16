@@ -21,21 +21,17 @@
  * @params kilometros contiene los kilometros
  * @params precioAerolineas es un puntero donde tiene el precio
  */
-void calcularCostos(float *resultadoCostoAeroArg,float *resultadoCostoLATAM,float descuento,float interes,float precioBTC, float kilometros,float *precioAerolineas){
-	printf("Calculando ando");
+void calcularCostos(float *resultadoCostoAeroArg,float *resultadoCostoLATAM,float descuento,float interes,float precioBTC, float kilometraje,float *precioAerolineas){
 	resultadoCostoAeroArg[0] = precioAerolineas[0];
 	resultadoCostoAeroArg[1] = calcularPrecioTD(precioAerolineas[0],descuento);
 	resultadoCostoAeroArg[2] = calcularPrecioTC(precioAerolineas[0],interes);
 	resultadoCostoAeroArg[3] = calcularPrecioEnBTC(precioAerolineas[0],precioBTC);
-	resultadoCostoAeroArg[4] = calcularPrecioPorKM(precioAerolineas[0],kilometros);
-
+	resultadoCostoAeroArg[4] = calcularPrecioPorKM(precioAerolineas[0],kilometraje);
 	resultadoCostoLATAM[0] = precioAerolineas[1];
 	resultadoCostoLATAM[1] = calcularPrecioTD(precioAerolineas[1],descuento);
 	resultadoCostoLATAM[2] = calcularPrecioTC(precioAerolineas[1],interes);
 	resultadoCostoLATAM[3] = calcularPrecioEnBTC(precioAerolineas[1],precioBTC);
-	resultadoCostoLATAM[4] = calcularPrecioPorKM(precioAerolineas[1],kilometros);
-
-	printf("%.2f",resultadoCostoLATAM[4]);
+	resultadoCostoLATAM[4] = calcularPrecioPorKM(precioAerolineas[1],kilometraje);
 }
 
 /***
@@ -84,4 +80,20 @@ float calcularPrecioPorKM(float precioAerolinea,float kilometros){
 	float resultadoPrecio;
 	resultadoPrecio = precioAerolinea/kilometros;
 	return resultadoPrecio;
+}
+
+/***
+ * @fn float calcularPrecioTC()
+ * @brief Devuelve el precio con interes
+ * @params precioAerolinea contiene el valor del precio
+ * @params descuento contiene el precio de interes
+ */
+float calcularDiferenciaDePrecio(float precioAerolineasArgentina, float precioLATAM){
+	float diferenciaPrecio;
+	if(precioAerolineasArgentina > precioLATAM){
+		diferenciaPrecio = precioAerolineasArgentina - precioLATAM;
+	}else{
+		diferenciaPrecio = precioLATAM - precioAerolineasArgentina;
+	}
+	return diferenciaPrecio;
 }

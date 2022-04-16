@@ -22,8 +22,7 @@ void mostrarMenu();
  * @params resultadoCostoLATAM es un puntero, tiene 5 posiciones donde cada una guarda un valor de la aerolinea
  * @params kilometraje recibe el kilometrraje
  */
-void mostrarResultados(float *resultadoCostoAeroArg, float *resultadoCostoLATAM, float kilometraje);
-
+void mostrarResultados(float *resultadoCostoAeroArg, float *resultadoCostoLATAM,float kilometraje);
 /***
  * @fn void cargaForzada()
  * Description: La funcion hardcodea los valores de las aerolineas y los kilometros
@@ -32,7 +31,6 @@ void mostrarResultados(float *resultadoCostoAeroArg, float *resultadoCostoLATAM,
  * @params resultadoCostoAeroArg es un puntero donde se va a cargar los precios
  */
 void cargaForzada(float *precioAerolineas,float *resultadoCostoLATAM,float *resultadoCostoAeroArg);
-
 
 
 #endif /* LIBS_FUNCIONESGENERALES_H_ */

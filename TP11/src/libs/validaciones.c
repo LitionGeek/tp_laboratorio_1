@@ -17,3 +17,12 @@ int validarEntero(int valorMinimo, int valorMaximo,int *pValor){
 	}
 	return retorno;
 }
+
+int validarFlotante(float valorMinimo, float pValor){
+	int retorno = 0;
+	if(pValor > valorMinimo){
+		retorno = 1;
+	}
+	return retorno;
+}
+
